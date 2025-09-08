@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RareBears — Loading Collection...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">RareBears</div>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <section class="product-section" id="product-section">
+    <h2 class="section-title" id="category-title">Loading Collection...</h2>
+    <p class="section-subtitle" id="category-subtitle"></p>
+    <div class="product-grid" id="product-grid"></div>
+    <a href="index.html" class="back-home">← Back to All Collections</a>
+  </section>
+
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal">&times;</span>
+      <div class="modal-image">
+        <img id="modal-img" src="" alt="Product">
+      </div>
+      <div class="modal-info">
+        <h2 id="modal-title"></h2>
+        <div class="price" id="modal-price"></div>
+        <p id="modal-desc"></p>
+        <button class="btn btn-add" id="modal-add">Add to Cart</button>
+        <button class="btn btn-notify">Notify Me for Next Drop</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 RareBears — Only 4 Bears Per Festival. Forever.
+  </footer>
+
+  <script>
+    const categoryTitle = document.getElementById('category-title');
+    const categorySubtitle = document.getElementById('category-subtitle');
+    const productGrid = document.getElementById('product-grid');
+    const modal = document.getElementById('product-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPrice = document.getElementById('modal-price');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalAddBtn = document.getElementById('modal-add');
+    const cartCount = document.querySelector('.cart-count');
+
+    let cartItems = 0;
+    function updateCartCount() {
+      cartCount.textContent = cartItems;
+    }
+
+    function getUrlParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    async function loadCategoryPage() {
+      const catId = getUrlParam('cat');
+      if (!catId) {
+        categoryTitle.textContent = "Collection Not Found";
+        return;
+      }
+
+      try {
+        const catResponse = await fetch('data/categories.json');
+        const categories = await catResponse.json();
+        const category = categories.find(c => c.id === catId);
+
+        if (!category) {
+          categoryTitle.textContent = "Collection Not Found";
+          return;
+        }
+
+        document.title = `${category.title} — RareBears`;
+        categoryTitle.textContent = category.title;
+        categorySubtitle.textContent = category.subtitle;
+
+        const prodResponse = await fetch('data/products.json');
+        const products = await prodResponse.json();
+        const categoryProducts = products.filter(p => p.category === catId);
+
+        productGrid.innerHTML = '';
+        categoryProducts.forEach((product, idx) => {
+          const card = document.createElement('div');
+          card.className = `product-card fade-in-up delay-${idx + 1}`;
+          card.innerHTML = `
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}" loading="lazy">
+            </div>
+            <div class="product-info">
+              <div class="product-name">${product.name}</div>
+              <div class="product-price">${product.price}</div>
+              <button class="btn btn-add add-to-cart" data-id="${product.id}">Add to Cart</button>
+              <button class="btn btn-notify">Notify Me</button>
+            </div>
+          `;
+          productGrid.appendChild(card);
+
+          card.addEventListener('click', (e) => {
+            if (e.target.classList.contains('btn')) return;
+            openModal(product);
+          });
+        });
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cartItems++;
+            updateCartCount();
+          });
+        });
+
+      } catch (error) {
+        console.error("Failed to load category page:", error);
+        categoryTitle.textContent = "Error Loading Collection";
+      }
+    }
+
+    function openModal(product) {
+      modalImg.src = product.image;
+      modalTitle.textContent = product.name;
+      modalPrice.textContent = product.price;
+      modalDesc.textContent = product.description;
+      modal.style.display = 'flex';
+      modalAddBtn.dataset.id = product.id;
+    }
+
+    closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+    document.addEventListener('DOMContentLoaded', loadCategoryPage);
+  </script>
+</body>
+</html>

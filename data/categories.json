@@ -1,0 +1,26 @@
+[
+  {
+    "id": "diwali-2025",
+    "title": "Diwali 2025 Collection",
+    "subtitle": "Illuminate your collection with golden glow bears",
+    "pageUrl": "category.html?cat=diwali-2025"
+  },
+  {
+    "id": "christmas-2025",
+    "title": "Christmas 2025 Collection",
+    "subtitle": "Winter wonder limited edition bears",
+    "pageUrl": "category.html?cat=christmas-2025"
+  },
+  {
+    "id": "halloween-2025",
+    "title": "Halloween 2025 Collection",
+    "subtitle": "Spookily adorable bears for your haunted shelf",
+    "pageUrl": "category.html?cat=halloween-2025"
+  },
+  {
+    "id": "newyear-2026",
+    "title": "New Year 2026 Collection",
+    "subtitle": "Ring in the new with rare charm bears",
+    "pageUrl": "category.html?cat=newyear-2026"
+  }
+]

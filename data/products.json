@@ -1,0 +1,130 @@
+[
+  {
+    "id": "diwali-1",
+    "name": "Golden Diya Bear",
+    "category": "diwali-2025",
+    "image": "images/diwali-1.jpg",
+    "price": "$299",
+    "description": "Hand-stitched with 24k gold thread. Limited to 50 pieces worldwide."
+  },
+  {
+    "id": "diwali-2",
+    "name": "Peacock Glow Bear",
+    "category": "diwali-2025",
+    "image": "images/diwali-2.jpg",
+    "price": "$279",
+    "description": "Feather-embroidered sari wrap. Glows under moonlight."
+  },
+  {
+    "id": "diwali-3",
+    "name": "Lakshmi Blessing Bear",
+    "category": "diwali-2025",
+    "image": "images/diwali-3.jpg",
+    "price": "$329",
+    "description": "Blessed by artisans during Mahalakshmi puja. Comes with sacred thread."
+  },
+  {
+    "id": "diwali-4",
+    "name": "Firework Sparkle Bear",
+    "category": "diwali-2025",
+    "image": "images/diwali-4.jpg",
+    "price": "$259",
+    "description": "Sequin-coated to mimic bursting fireworks. Limited run."
+  },
+  {
+    "id": "christmas-1",
+    "name": "Snowflake Velvet Bear",
+    "category": "christmas-2025",
+    "image": "images/christmas-1.jpg",
+    "price": "$349",
+    "description": "Hand-loomed velvet with real silver snowflakes. Heirloom quality."
+  },
+  {
+    "id": "christmas-2",
+    "name": "Candy Cane Striped Bear",
+    "category": "christmas-2025",
+    "image": "images/christmas-2.jpg",
+    "price": "$289",
+    "description": "Peppermint-scented stuffing. Limited to 100 globally."
+  },
+  {
+    "id": "christmas-3",
+    "name": "Starlight Angel Bear",
+    "category": "christmas-2025",
+    "image": "images/christmas-3.jpg",
+    "price": "$369",
+    "description": "Wings hand-folded from Italian foil. Glows in dark."
+  },
+  {
+    "id": "christmas-4",
+    "name": "Yule Log Companion Bear",
+    "category": "christmas-2025",
+    "image": "images/christmas-4.jpg",
+    "price": "$269",
+    "description": "Comes with miniature yule log and cinnamon stick."
+  },
+  {
+    "id": "halloween-1",
+    "name": "Midnight Witch Bear",
+    "category": "halloween-2025",
+    "image": "images/halloween-1.jpg",
+    "price": "$279",
+    "description": "Glowing eyes, removable hat. Brews imaginary potions."
+  },
+  {
+    "id": "halloween-2",
+    "name": "Pumpkin Carve Bear",
+    "category": "halloween-2025",
+    "image": "images/halloween-2.jpg",
+    "price": "$259",
+    "description": "Orange velvet with carved pumpkin smile. Glows internally."
+  },
+  {
+    "id": "halloween-3",
+    "name": "Ghostly Whisper Bear",
+    "category": "halloween-2025",
+    "image": "images/halloween-3.jpg",
+    "price": "$299",
+    "description": "Translucent tulle overlay. Makes soft chime sounds."
+  },
+  {
+    "id": "halloween-4",
+    "name": "Candy Corn Bear",
+    "category": "halloween-2025",
+    "image": "images/halloween-4.jpg",
+    "price": "$239",
+    "description": "Layered fabric mimicking candy corn. Sweetest of the bunch."
+  },
+  {
+    "id": "newyear-1",
+    "name": "Midnight Confetti Bear",
+    "category": "newyear-2026",
+    "image": "images/newyear-1.jpg",
+    "price": "$319",
+    "description": "Explodes with fabric confetti when hugged. Safe & magical."
+  },
+  {
+    "id": "newyear-2",
+    "name": "Champagne Bubble Bear",
+    "category": "newyear-2026",
+    "image": "images/newyear-2.jpg",
+    "price": "$339",
+    "description": "Metallic gold bubbles hand-sewn across body. Toast to rarity."
+  },
+  {
+    "id": "newyear-3",
+    "name": "Resolution Keeper Bear",
+    "category": "newyear-2026",
+    "image": "images/newyear-3.jpg",
+    "price": "$299",
+    "description": "Comes with tiny scroll to write your resolution. Guardian of promises."
+  },
+  {
+    "id": "newyear-4",
+    "name": "Starfall Wish Bear",
+    "category": "newyear-2026",
+    "image": "images/newyear-4.jpg",
+    "price": "$359",
+    "description": "Silver-thread constellations glow when held under light."
+  }
+]

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RareBears — Collect the Uncommon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">RareBears</div>
+    <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+  </header>
+
+  <section class="hero">
+    <h1>RareBears</h1>
+    <p>Only 4 bears per festival. Forever.</p>
+    <button class="hero-cta" id="explore-btn">Explore the Collection</button>
+    <div class="floating-bear"></div>
+  </section>
+
+  <section class="categories" id="categories">
+    <!-- Dynamically filled from categories.json -->
+  </section>
+
+  <footer>
+    © 2025 RareBears — Only 4 Bears Per Festival. Forever.
+  </footer>
+
+  <script>
+    // DOM Elements
+    const categoriesContainer = document.getElementById('categories');
+    const cartCount = document.querySelector('.cart-count');
+    const exploreBtn = document.getElementById('explore-btn');
+
+    // Cart functionality
+    let cartItems = 0;
+
+    function updateCartCount() {
+      cartCount.textContent = cartItems;
+    }
+
+    // Load categories on homepage
+    async function loadCategories() {
+      try {
+        const response = await fetch('data/categories.json');
+        const categories = await response.json();
+        
+        categories.forEach(cat => {
+          categoriesContainer.innerHTML += `
+            <a href="category.html?cat=${cat.id}" class="category-card">
+              <h3>${cat.title.split(' ')[0]}</h3>
+              <p>${cat.subtitle}</p>
+            </a>
+          `;
+        });
+      } catch (error) {
+        console.error("Failed to load categories:", error);
+      }
+    }
+
+    // Scroll to categories
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', () => {
+        document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadCategories);
+  </script>
+</body>
+</html>
